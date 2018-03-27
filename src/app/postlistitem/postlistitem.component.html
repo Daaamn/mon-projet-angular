@@ -1,0 +1,13 @@
+<li [ngClass]="{'list-group-item': true,
+				'list-group-item-success': postLike > 0,
+				'list-group-item-danger': postLike < 0}">
+	<div class="date">{{ postDate | date: 'dd/MM/yyyy, hh:mm a' }}</div>
+	<h3 [ngStyle]="{color: getColor()}" class="bold">{{ postTitle }}</h3>
+	<p>{{ postContent }}</p>
+	<button type="button" class="btn btn-success" (click)="onLike()">
+		Love !!! <span *ngIf="postLike > 0">(+{{ postLike }})</span>
+	</button>
+	<button type="button" class="btn btn-danger" (click)="onDislike()">
+		Don't love !!! <span *ngIf="postLike < 0">({{ postLike }})</span>
+	</button>
+</li>
